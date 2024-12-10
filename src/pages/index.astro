@@ -5,12 +5,12 @@ import Chip from "../components/chip.astro";
 // Put all your links here
 const links: Link[] = [
   {
-    desc: "Exemplo",
+    desc: "Example Project",
     link: "example.com",
     icon: "fa-solid fa-home",
   },
   {
-    desc: "Teste",
+    desc: "Cool Project",
     link: "example.com",
     icon: "fa-solid fa-store",
   },
@@ -58,30 +58,19 @@ const links: Link[] = [
         gap: 16px;
       }
 
-      .content {
-        order: 1;
-      }
-
       .typebot {
-        order: 2;
         width: 100%;
         height: 600px;
       }
 
-      @media (min-width: 768px) {
+      /* Ajuste para dispositivos móveis */
+      @media (max-width: 768px) {
         .container {
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-        }
-
-        .content {
-          width: 60%;
+          flex-direction: column;
         }
 
         .typebot {
-          width: 35%;
-          height: 600px;
+          margin-top: 16px;
         }
       }
     </style>
@@ -91,7 +80,7 @@ const links: Link[] = [
   >
     <main class="container w-[80%]">
       <!-- Conteúdo principal -->
-      <div class="content">
+      <div>
         <h1 class='md:text-6xl text-4xl font-black text-center'>Governe</h1>
         <div class='grid justify-center gap-4'>
           {
