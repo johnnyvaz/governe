@@ -21,7 +21,7 @@ const links: Link[] = [
   <head>
     <meta charset='utf-8' />
     <link rel='icon' type='image/x-icon' href='/favicon.png' />
-    <meta name='viewport' content='width=device-width' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link
       rel='stylesheet'
       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
@@ -47,32 +47,72 @@ const links: Link[] = [
         src: url(/Geist.ttf);
         font-display: swap;
       }
+
       body {
         background: linear-gradient(135deg, #1e3a8a, #9333ea);
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .content {
+        order: 1;
+      }
+
+      .typebot {
+        order: 2;
+        width: 100%;
+        height: 600px;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+
+        .content {
+          width: 60%;
+        }
+
+        .typebot {
+          width: 35%;
+          height: 600px;
+        }
       }
     </style>
   </head>
   <body
     class='flex justify-center items-center w-screen h-screen font-[Geist] text-white'
   >
-    <main class='w-[80%] flex flex-col gap-8'>
-      <h1 class='md:text-6xl text-4xl font-black text-center'>Governe</h1>
-      <div class='grid justify-center gap-4'>
-        {
-          links.map(({ desc, link, icon }) => {
-            return <Card {desc} {link} {icon} />;
-          })
-        }
+    <main class="container w-[80%]">
+      <!-- Conteúdo principal -->
+      <div class="content">
+        <h1 class='md:text-6xl text-4xl font-black text-center'>Governe</h1>
+        <div class='grid justify-center gap-4'>
+          {
+            links.map(({ desc, link, icon }) => {
+              return <Card {desc} {link} {icon} />;
+            })
+          }
+        </div>
+        <div class='flex justify-center gap-8'>
+          <Chip link='youtube.com/' icon='fa-brands fa-youtube' />
+          <Chip link='github.com/' icon='fa-brands fa-github' />
+          <Chip link='x.com/' icon='fa-brands fa-x-twitter' />
+        </div>
+        <p class='text-center mx-auto'>Site em construção</p>
       </div>
-      <div class='flex justify-center gap-8'>
-        <Chip link='youtube.com/' icon='fa-brands fa-youtube' />
-        <Chip link='github.com/' icon='fa-brands fa-github' />
-        <Chip link='x.com/' icon='fa-brands fa-x-twitter' />
-      </div>
-      <p class='text-center mx-auto'>Site em construção</p>
+
+      <!-- Typebot -->
+      <typebot-standard class="typebot"></typebot-standard>
     </main>
-    <!-- Código Typebot -->
-    <typebot-standard style="width: 100%; height: 600px;"></typebot-standard>
+
+    <!-- Script Typebot -->
     <script type="module">
       import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3.4/dist/web.js';
       Typebot.initStandard({ typebot: "governe", apiHost: "https://bot.cd2.io" });
