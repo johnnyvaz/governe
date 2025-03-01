@@ -5,15 +5,15 @@ import Chip from "../components/chip.astro";
 // Put all your links here
 const links: Link[] = [
   {
-    desc: "Example Project",
-    link: "example.com",
-    icon: "fa-solid fa-home",
+    desc: "Fale Conosco pelo WhatsApp",
+    link: "wa.me/5573999719266?text=Olá%2C%20Leal%20Fidelzações!%20%F0%9F%98%83",
+    icon: "fa-brands fa-whatsapp",
   },
-  {
-    desc: "Cool Project",
-    link: "example.com",
-    icon: "fa-solid fa-store",
-  },
+  // {
+  //   desc: "Cool Project",
+  //   link: "example.com",
+  //   icon: "fa-solid fa-store",
+  // },
 ];
 ---
 
@@ -40,7 +40,7 @@ const links: Link[] = [
     <meta property='twitter:image' content='favicon.png' />
     <meta name='twitter:card' content='summary' />
     <meta name='twitter:site' content='@BremNeville' />
-    <title>Links of Neville Brem</title>
+    <title>Leal Fidelizações</title>
     <style>
       @font-face {
         font-family: Geist;
@@ -49,7 +49,7 @@ const links: Link[] = [
       }
 
       body {
-        background: linear-gradient(135deg, #1e3a8a, #9333ea);
+        background: linear-gradient(135deg, #fb4c19, #ffffff);
       }
 
       .container {
@@ -80,22 +80,28 @@ const links: Link[] = [
   >
     <main class="container w-[80%]">
       <!-- Conteúdo principal -->
-      <div>
-        <h1 class='md:text-6xl text-4xl font-black text-center'>Leal Fidelizações</h1>
-        <h2 class='text-center mx-auto'>Digite seu celular para conferir seu cashback</h2>
-        <!-- <div class='grid justify-center gap-4'>
-          {
-            links.map(({ desc, link, icon }) => {
-              return <Card {desc} {link} {icon} />;
-            })
-          }
+      <div class="flex items-center gap-8 mb-8">
+        <!-- Espaço para o logo -->
+        <div class="w-32 h-32 bg-white/10 rounded-full flex items-center justify-center">
+          <img src="/leal.jpeg" alt="Logo Leal Fidelizações" class="w-24 h-24 object-contain" />
         </div>
-        <div class='flex justify-center gap-8'>
-          <Chip link='youtube.com/' icon='fa-brands fa-youtube' />
-          <Chip link='github.com/' icon='fa-brands fa-github' />
-          <Chip link='x.com/' icon='fa-brands fa-x-twitter' />
-        </div> -->
         
+        <div class="flex-1">
+          <h1 class='md:text-6xl text-4xl font-black'>Leal Fidelizações</h1>
+          <h2 class='text-xl mt-2'>Digite seu celular para conferir seu cashback</h2>
+        </div>
+      </div>
+
+      <div class='grid justify-center gap-4 mb-8'>
+        {
+          links.map(({ desc, link, icon }) => {
+            return <Card {desc} {link} {icon} />;
+          })
+        }
+      </div>
+
+      <div class='flex justify-center gap-8'>
+        <Chip link='instagram.com/lealfidelizacoes/' icon='fa-brands fa-instagram' />
       </div>
 
       <!-- Typebot -->
